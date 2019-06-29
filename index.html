@@ -16,7 +16,7 @@
   
   function PlayButton(props) {
     // className ie which css is utilized will be based upon the state of the property 
-    const className = props.isMusicPlaying ? 'play' : 'play active';
+    const className = props.isMusicPlaying ? 'play active' : 'play' ;
     return <a onClick={props.onClick} href="#" title = "Play Video" className={className} />
   }
 
@@ -25,7 +25,8 @@
 
     constructor(props){
       super(props);
-      this.state = { isMusicPlaying: true};
+      // made the fix here 
+      this.state = { isMusicPlaying: false};
     }
 
     handleClick(){
@@ -42,8 +43,9 @@
       });
     };
 
-  render() {
-    const status = this.state.isMusicPlaying ? 'Playing :)' : 'Not Playing :(';
+  render() { 
+    // made the fix here 
+    const status = this.state.isMusicPlaying ? 'Click to Stop Playing :(' : 'Click to play :)';
 
     // assigning PlayButton a prop called is Music Playing now when the state of container changes prop will change too 
     return (                        
